@@ -1,0 +1,20 @@
+.date-views {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  max-width: 100%;
+  margin-top: 30px;
+}
+
+.date-views div {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+}
+
+.date-views input {
+  border: none;
+  width: 65px;
+  font-size: 32px;
+  color: hsl(259, 100%, 65%);
+}
