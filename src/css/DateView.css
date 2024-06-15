@@ -6,15 +6,17 @@
   margin-top: 30px;
 }
 
-.date-views div {
-  display: flex;
-  align-items: center;
+.date-views .date-name {
   font-size: 32px;
 }
 
-.date-views input {
+.date-views .date-value {
   border: none;
   width: 65px;
   font-size: 32px;
   color: hsl(259, 100%, 65%);
+}
+
+.date-views div {
+  display: flex;
 }
