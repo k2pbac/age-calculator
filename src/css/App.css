@@ -1,0 +1,17 @@
+.arrow {
+  background-color: hsl(259, 100%, 65%);
+  padding: 14px;
+  width: 60px;
+}
+
+.arrow-container {
+  position: relative;
+  width: 500px;
+  max-width: 100%;
+}
+
+.arrow-container img {
+  position: absolute;
+  right: 0;
+  top: -30px;
+}

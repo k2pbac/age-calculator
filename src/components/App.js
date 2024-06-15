@@ -1,6 +1,6 @@
 import "../css/App.css";
 import DateInput from "../components/DateInput";
-import { Form } from "react-bootstrap";
+import { Form, Image } from "react-bootstrap";
 
 function App() {
   return (
@@ -11,6 +11,15 @@ function App() {
           <DateInput label="Month" placeholder="MM" />
           <DateInput label="Year" placeholder="YYYY" />
         </Form>
+        <div className="arrow-container">
+          <hr></hr>
+          <Image
+            className="arrow"
+            src="/images/icon-arrow.svg"
+            alt="arrow"
+            roundedCircle
+          />
+        </div>
       </header>
     </div>
   );
