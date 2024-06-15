@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Form>
+        <Form className="inputs poppins-bold">
           <DateInput label="Day" placeholder="DD" />
           <DateInput label="Month" placeholder="MM" />
           <DateInput label="Year" placeholder="YYYY" />
