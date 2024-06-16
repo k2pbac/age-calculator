@@ -11,10 +11,16 @@
 }
 
 .inputs div input::placeholder {
-  color: hsl(0, 1%, 44%);
+  color: hsl(0, 1%, 60%);
 }
 
 .inputs-container {
   display: flex;
   gap: 20px;
+}
+
+.inputs-container input {
+  padding: 0.75rem 0.75rem;
+  font-size: 1.3rem;
+  line-height: 1.5;
 }

@@ -9,6 +9,7 @@
 .date-views .date-name {
   font-size: 60px;
   height: 50px;
+  padding-top: 6px;
 }
 
 .date-views .date-value {
@@ -16,11 +17,13 @@
   font-size: 68px;
   color: hsl(259, 100%, 65%);
   height: 50px;
-  letter-spacing: 10px;
 }
 
 .date-views div {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+.empty-date {
+  letter-spacing: 10px;
 }
