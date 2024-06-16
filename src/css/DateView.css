@@ -1,22 +1,26 @@
 .date-views {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 400px;
   max-width: 100%;
-  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 .date-views .date-name {
-  font-size: 32px;
+  font-size: 60px;
+  height: 50px;
 }
 
 .date-views .date-value {
   border: none;
-  width: 65px;
-  font-size: 32px;
+  font-size: 68px;
   color: hsl(259, 100%, 65%);
+  height: 50px;
+  letter-spacing: 10px;
 }
 
 .date-views div {
   display: flex;
+  align-items: center;
+  gap: 6px;
 }

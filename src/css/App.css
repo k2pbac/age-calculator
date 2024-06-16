@@ -1,16 +1,22 @@
-.arrow {
+.arrow,
+.arrow-container button {
   background-color: hsl(259, 100%, 65%);
   padding: 14px;
   width: 60px;
 }
 
-.arrow-container {
-  position: relative;
-  width: 500px;
-  max-width: 100%;
+.arrow-container button {
+  opacity: 0;
+  height: 60px;
 }
 
-.arrow-container img {
+.arrow-container {
+  position: relative;
+  width: 420px;
+}
+
+.arrow-container img,
+.arrow-container button {
   position: absolute;
   right: 0;
   top: -15px;

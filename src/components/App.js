@@ -1,29 +1,54 @@
 import "../css/App.css";
 import DateInput from "../components/DateInput";
-import { Form, Image } from "react-bootstrap";
+import { Button, Form, Image } from "react-bootstrap";
 import DateView from "./DateView";
+import calculateAge from "../helper";
+import { useState } from "react";
 
 function App() {
+  const [day, setDay] = useState(-1);
+  const [month, setMonth] = useState(-1);
+  const [year, setYear] = useState(-1);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { days, months, years } = calculateAge(
+      e.target[0].value,
+      e.target[1].value,
+      e.target[2].value
+    );
+    setDay(days);
+    setMonth(months);
+    setYear(years);
+  };
+
   return (
     <div className="App">
-      <Form className="inputs poppins-bold">
-        <DateInput label="Day" placeholder="DD" />
-        <DateInput label="Month" placeholder="MM" />
-        <DateInput label="Year" placeholder="YYYY" />
+      <Form
+        id="input-form"
+        className="inputs poppins-bold"
+        onSubmit={handleSubmit}
+      >
+        <div className="inputs-container">
+          <DateInput label="Day" placeholder="DD" />
+          <DateInput label="Month" placeholder="MM" />
+          <DateInput label="Year" placeholder="YYYY" />
+        </div>
+        <div className="arrow-container">
+          <hr></hr>
+          <Image
+            className="arrow"
+            src="/images/icon-arrow.svg"
+            alt="arrow"
+            roundedCircle
+          />
+          <Button type="submit" className="rounded-circle"></Button>
+        </div>
       </Form>
-      <div className="arrow-container">
-        <hr></hr>
-        <Image
-          className="arrow"
-          src="/images/icon-arrow.svg"
-          alt="arrow"
-          roundedCircle
-        />
-      </div>
       <div className="date-views">
-        <DateView number={-1} label="years" />
-        <DateView number={-1} label="months" />
-        <DateView number={-1} label="days" />
+        <DateView number={year} label="years" />
+        <DateView number={month} label="months" />
+        <DateView number={day} label="days" />
       </div>
     </div>
   );

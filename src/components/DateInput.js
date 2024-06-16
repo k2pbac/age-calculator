@@ -5,7 +5,7 @@ function DateInput({ label, placeholder }) {
   return (
     <Form.Group className="mb-3" controlId={label}>
       <Form.Label>{label.toUpperCase()}</Form.Label>
-      <Form.Control type="email" placeholder={placeholder} />
+      <Form.Control type="text" placeholder={placeholder} />
     </Form.Group>
   );
 }
