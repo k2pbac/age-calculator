@@ -3,7 +3,7 @@ import "../css/DateView.css";
 function DateView({ label, number }) {
   return (
     <div>
-      {number !== -1 ? (
+      {number !== "" ? (
         <p className="date-value poppins-bold"> {number} </p>
       ) : (
         <p className="date-value poppins-bold empty-date">--</p>
