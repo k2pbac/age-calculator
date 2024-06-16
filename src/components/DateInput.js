@@ -5,7 +5,9 @@ import { Form } from "react-bootstrap";
 function DateInput({ label, placeholder, value, onChange, error }) {
   return (
     <Form.Group className="mb-3" controlId={label}>
-      <Form.Label>{label.toUpperCase()}</Form.Label>
+      <Form.Label className={!!error ? "error" : ""}>
+        {label.toUpperCase()}
+      </Form.Label>
       <Form.Control
         isInvalid={!!error}
         required

@@ -11,24 +11,33 @@ function App() {
 
   const validate = (values) => {
     const errors = {};
+    const date = new Date();
+    const tempDate = new Date(values.Year, values.Month, values.Day);
+    tempDate.setDate(0);
+
     if (!values.Day) {
       errors.Day = "This field is required";
     } else if (values.Day < 1 || values.Day > 31) {
       errors.Day = "Must be a valid day";
+    }
+    if (values.Month && values.Month >= 1 && values.Month <= 12) {
+      console.log(tempDate.getDate());
+      if (values.Day && values.Day > tempDate.getDate()) {
+        errors.Day = "Must be a valid date";
+      }
     }
     if (!values.Month) {
       errors.Month = "This field is required";
     } else if (values.Month < 1 || values.Month > 12) {
       errors.Month = "Must be a valid month";
     }
-    const date = new Date();
     if (!values.Year) {
       errors.Year = "This field is required";
     } else if (
       values.Year > date.getFullYear() ||
       new Date(values.Year, values.Month, values.Day) > date
     ) {
-      errors.Year = "Must be a valid year";
+      errors.Year = "Must be in the past";
     }
     return errors;
   };
@@ -39,6 +48,8 @@ function App() {
       Month: "",
       Year: "",
     },
+    validateOnChange: false,
+    validateOnBlur: false,
     validate,
     onSubmit: (values) => {
       setAge(calculateAge(values));

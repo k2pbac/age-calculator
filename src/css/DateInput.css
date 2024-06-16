@@ -24,3 +24,7 @@
   font-size: 1.1rem;
   line-height: 1.5;
 }
+
+.inputs-container label.error {
+  color: var(--bs-form-invalid-color);
+}
