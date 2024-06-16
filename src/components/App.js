@@ -92,7 +92,7 @@ function App() {
           <hr></hr>
           <Image
             className="arrow"
-            src="/images/icon-arrow.svg"
+            src="./images/icon-arrow.svg"
             alt="arrow"
             roundedCircle
           />
