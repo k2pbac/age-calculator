@@ -6,7 +6,7 @@
   letter-spacing: 3px;
   margin-right: 80px;
   margin-top: 20px;
-  width: 320px;
+  width: 370px;
   max-width: 100%;
 }
 
@@ -21,6 +21,6 @@
 
 .inputs-container input {
   padding: 0.75rem 0.75rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.5;
 }
