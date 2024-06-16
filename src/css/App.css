@@ -13,7 +13,6 @@
 .arrow-container {
   position: relative;
   width: 460px;
-  max-width: 100%;
 }
 
 .arrow-container img,
