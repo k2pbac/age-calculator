@@ -28,3 +28,11 @@
 .inputs-container label.error {
   color: var(--bs-form-invalid-color);
 }
+
+@media only screen and (max-width: 500px) {
+  .inputs {
+    width: 100%;
+    margin: 0;
+    padding: 50px;
+  }
+}

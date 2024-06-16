@@ -27,3 +27,18 @@
 .empty-date {
   letter-spacing: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+  .date-views .date-value,
+  .date-views .date-name {
+    height: 30px;
+    font-size: 40px;
+  }
+  .date-views .date-name {
+    padding-top: 0;
+  }
+  .date-views div {
+    justify-content: flex-start;
+    margin-left: 40px;
+  }
+}

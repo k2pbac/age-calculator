@@ -21,7 +21,6 @@ function App() {
       errors.Day = "Must be a valid day";
     }
     if (values.Month && values.Month >= 1 && values.Month <= 12) {
-      console.log(tempDate.getDate());
       if (values.Day && values.Day > tempDate.getDate()) {
         errors.Day = "Must be a valid date";
       }

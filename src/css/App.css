@@ -13,6 +13,7 @@
 .arrow-container {
   position: relative;
   width: 460px;
+  max-width: 100%;
 }
 
 .arrow-container img,
@@ -32,8 +33,22 @@
   width: 600px;
   margin: auto;
   margin-top: 100px;
+  max-width: 100%;
 }
 
 body {
   background-color: hsl(0, 0%, 94%) !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .App {
+    height: 800px;
+  }
+  .arrow-container img,
+  .arrow-container button {
+    right: calc(50% - 28px);
+  }
+  .arrow-container {
+    margin-top: 20px;
+  }
 }
