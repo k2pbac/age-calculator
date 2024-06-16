@@ -4,35 +4,80 @@ import { Button, Form, Image } from "react-bootstrap";
 import DateView from "./DateView";
 import calculateAge from "../helper";
 import { useState } from "react";
+import { useFormik } from "formik";
 
 function App() {
-  const [day, setDay] = useState(-1);
-  const [month, setMonth] = useState(-1);
-  const [year, setYear] = useState(-1);
+  const [age, setAge] = useState({ days: "", months: "", years: "" });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { days, months, years } = calculateAge(
-      e.target[0].value,
-      e.target[1].value,
-      e.target[2].value
-    );
-    setDay(days);
-    setMonth(months);
-    setYear(years);
+  const validate = (values) => {
+    const errors = {};
+    if (!values.Day) {
+      errors.Day = "This field is required";
+    } else if (values.Day < 1 || values.Day > 31) {
+      errors.Day = "Must be a valid day";
+    }
+    if (!values.Month) {
+      errors.Month = "This field is required";
+    } else if (values.Month < 1 || values.Month > 12) {
+      errors.Month = "Must be a valid month";
+    }
+    const date = new Date();
+    if (!values.Year) {
+      errors.Year = "This field is required";
+    } else if (
+      values.Year > date.getFullYear() ||
+      new Date(values.Year, values.Month, values.Day) > date
+    ) {
+      errors.Year = "Must be a valid year";
+    }
+    return errors;
   };
+
+  const formik = useFormik({
+    initialValues: {
+      Day: "",
+      Month: "",
+      Year: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      console.log(values);
+      setAge(calculateAge(values));
+    },
+  });
 
   return (
     <div className="App">
       <Form
+        noValidate
         id="input-form"
         className="inputs poppins-bold"
-        onSubmit={handleSubmit}
+        onSubmit={formik.handleSubmit}
       >
         <div className="inputs-container">
-          <DateInput label="Day" placeholder="DD" />
-          <DateInput label="Month" placeholder="MM" />
-          <DateInput label="Year" placeholder="YYYY" />
+          <DateInput
+            value={formik.values.Day}
+            label="Day"
+            placeholder="DD"
+            onChange={formik.handleChange}
+            error={formik.errors.Day ? <div>{formik.errors.Day}</div> : null}
+          />
+          <DateInput
+            value={formik.values.Month}
+            label="Month"
+            placeholder="MM"
+            onChange={formik.handleChange}
+            error={
+              formik.errors.Month ? <div>{formik.errors.Month}</div> : null
+            }
+          />
+          <DateInput
+            value={formik.values.Year}
+            label="Year"
+            placeholder="YYYY"
+            onChange={formik.handleChange}
+            error={formik.errors.Year ? <div>{formik.errors.Year}</div> : null}
+          />
         </div>
         <div className="arrow-container">
           <hr></hr>
@@ -46,9 +91,9 @@ function App() {
         </div>
       </Form>
       <div className="date-views">
-        <DateView number={year} label="years" />
-        <DateView number={month} label="months" />
-        <DateView number={day} label="days" />
+        <DateView number={age.years} label="years" />
+        <DateView number={age.months} label="months" />
+        <DateView number={age.days} label="days" />
       </div>
     </div>
   );
