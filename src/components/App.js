@@ -41,7 +41,6 @@ function App() {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
       setAge(calculateAge(values));
     },
   });
